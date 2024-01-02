@@ -24,7 +24,7 @@ import { DomSelectors } from "../js/dom.js";
 
 //secret key: 1a9e18cfcdb848ccab1ba26debf7c920
 // https://api.twelvedata.com/symbol_search?symbol=${symbol}&apikey=1a9e18cfcdb848ccab1ba26debf7c920
-
+// #2 key: 929916a64d344125af4e6f6b6ee54b21
 
 const { searchForm, searchInput, resultsContainer } = DomSelectors();
 
@@ -53,7 +53,7 @@ searchForm.addEventListener('submit', (event) => {
 
    async function fetchData(symbol) {
 	try {
-	const response = await fetch(`https://api.twelvedata.com/time_series?symbol=${symbol}&interval=1min&outputsize=5&apikey=1a9e18cfcdb848ccab1ba26debf7c920`);
+	const response = await fetch(`https://api.twelvedata.com/time_series?symbol=${symbol}&interval=30min&outputsize=5&apikey=929916a64d344125af4e6f6b6ee54b21`);
 	const data = await response.json();
 	Printx(data);
 	} catch (error) {
