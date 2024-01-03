@@ -6,10 +6,24 @@
     <title>MY API PROJECT</title>
   </head>
   <body>
-    <form id="search-form">
-      <input id="search-input" type="text" placeholder="Enter a symbol">
-      <button type="submit">Search</button>
-    </form>
+    <div class = "search-container">
+      <form id="search-form">
+        <input id="search-input" type="text" placeholder="Enter a symbol">
+        <button type="submit">Search</button>
+        <div class = "filter-container">
+          <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+          <label for="vehicle1"> Open</label><br>
+          <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+          <label for="vehicle2"> High</label><br>
+          <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+          <label for="vehicle3"> Low</label><br> 
+          <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+          <label for="vehicle2"> Close</label><br>
+          <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+          <label for="vehicle3"> Volume</label><br> 
+        </div>
+      </form>
+    </div>
     <div id="results"></div>
     <script type="module" src="js/main.js"></script>
   </body>
