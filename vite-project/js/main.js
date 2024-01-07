@@ -34,22 +34,22 @@ searchForm.addEventListener('submit', (event) => {
 	fetchData(symbol);
    });
    
-//    function Printx(data) {
-// 	data.values.forEach((x) => {
-// 	const html = `
-// 	<div class="cell">
-// 	 <div class="text-container">
-// 	   <h2>Datetime: ${x.datetime}</h2>
-// 	   <p>Open: ${x.open}</p>
-// 	   <p>High: ${x.high}</p>
-// 	   <p>Low: ${x.low}</p>
-// 	   <p>Close: ${x.close}</p>
-// 	   <p>Volume: ${x.volume}</p>
-// 	 </div>
-// 	</div>`;
-// 	resultsContainer.insertAdjacentHTML('afterbegin', html);
-// 	});
-//    }
+   function Printx(data) {
+	data.values.forEach((x) => {
+	const html = `
+	<div class="cell">
+	 <div class="text-container">
+	   <h2>Datetime: ${x.datetime}</h2>
+	   <p>Open: ${x.open}</p>
+	   <p>High: ${x.high}</p>
+	   <p>Low: ${x.low}</p>
+	   <p>Close: ${x.close}</p>
+	   <p>Volume: ${x.volume}</p>
+	 </div>
+	</div>`;
+	resultsContainer.insertAdjacentHTML('afterbegin', html);
+	});
+   }
 
 	openCheckbox.addEventListener('click', filterData);
 	highCheckbox.addEventListener('click', filterData);
