@@ -26,7 +26,7 @@ import { DomSelectors } from "../js/dom.js";
 // https://api.twelvedata.com/symbol_search?symbol=${symbol}&apikey=1a9e18cfcdb848ccab1ba26debf7c920
 // #2 key: 929916a64d344125af4e6f6b6ee54b21
 
-const { searchForm, searchInput, resultsContainer } = DomSelectors();
+const { openCheckbox, highCheckbox, lowCheckbox, closeCheckbox, volumeCheckbox } = DomSelectors();
 
 searchForm.addEventListener('submit', (event) => {
 	event.preventDefault();
@@ -51,14 +51,12 @@ searchForm.addEventListener('submit', (event) => {
 // 	});
 //    }
 
-   function Printx(data) {
-	resultsContainer.innerHTML = '';
-	data.values.forEach((x) => {
-	const openChecked = document.querySelector('#openCheckbox');
-	
+	openCheckbox.addEventListener('click', filterData);
+	highCheckbox.addEventListener('click', filterData);
+	lowCheckbox.addEventListener('click', filterData);
+	closeCheckbox.addEventListener('click', filterData);
+	volumeCheckbox.addEventListener('click', filterData);
 
-
-   }
 
 
    async function fetchData(symbol) {
@@ -71,4 +69,4 @@ searchForm.addEventListener('submit', (event) => {
 	}
    }
    
-   
+
