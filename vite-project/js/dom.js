@@ -7,6 +7,6 @@ export function DomSelectors() {
         highCheckbox: document.querySelector('#High'),
         lowCheckbox: document.querySelector('#Low'),
         closeCheckbox: document.querySelector('#Close'),
-        VolumeCheckbox: document.querySelector('#Volume'),
+        volumeCheckbox: document.querySelector('#Volume'),
     };
  }

@@ -1,7 +1,3 @@
-import '../css/style.css'
-import { DomSelectors } from "../js/dom.js";
-
-
 // async function getDATA() {
 //     let res = await fetch(
 //         "https://api.aviationstack.com/v1/flights?access_key=bf7d9e2a73cd688369b66157defa7668" 
@@ -26,47 +22,69 @@ import { DomSelectors } from "../js/dom.js";
 // https://api.twelvedata.com/symbol_search?symbol=${symbol}&apikey=1a9e18cfcdb848ccab1ba26debf7c920
 // #2 key: 929916a64d344125af4e6f6b6ee54b21
 
-const { openCheckbox, highCheckbox, lowCheckbox, closeCheckbox, volumeCheckbox } = DomSelectors();
+
+// searchForm.addEventListener('submit', (event) => {
+// 	event.preventDefault();
+// 	const symbol = searchInput.value;
+// 	fetchData(symbol);
+//    });
+   
+
+//    function Printx(data) {
+// 	data.values.forEach((x) => {
+// 	const html = `
+// 	<div class="cell">
+// 	 <div class="text-container">
+// 	   <h2>Datetime: ${x.datetime}</h2>
+// 	   <p>Open: ${x.open}</p>
+// 	   <p>High: ${x.high}</p>
+// 	   <p>Low: ${x.low}</p>
+// 	   <p>Close: ${x.close}</p>
+// 	   <p>Volume: ${x.volume}</p>
+// 	 </div>
+// 	</div>`;
+// 	resultsContainer.insertAdjacentHTML('afterbegin', html);
+// 	});
+//    }
+
+
+import '../css/style.css'
+import { DomSelectors } from "../js/dom.js";
+
+const { searchForm, searchInput, resultsContainer, openCheckbox, highCheckbox, lowCheckbox, closeCheckbox, volumeCheckbox } = DomSelectors();
+
 
 searchForm.addEventListener('submit', (event) => {
 	event.preventDefault();
+	resultsContainer.innerHTML = '';
 	const symbol = searchInput.value;
 	fetchData(symbol);
    });
-   
-   function Printx(data) {
-	data.values.forEach((x) => {
-	const html = `
-	<div class="cell">
-	 <div class="text-container">
-	   <h2>Datetime: ${x.datetime}</h2>
-	   <p>Open: ${x.open}</p>
-	   <p>High: ${x.high}</p>
-	   <p>Low: ${x.low}</p>
-	   <p>Close: ${x.close}</p>
-	   <p>Volume: ${x.volume}</p>
-	 </div>
-	</div>`;
-	resultsContainer.insertAdjacentHTML('afterbegin', html);
-	});
-   }
 
-	openCheckbox.addEventListener('click', filterData);
-	highCheckbox.addEventListener('click', filterData);
-	lowCheckbox.addEventListener('click', filterData);
-	closeCheckbox.addEventListener('click', filterData);
-	volumeCheckbox.addEventListener('click', filterData);
-
-
-
-   async function fetchData(symbol) {
-	try {
-	const response = await fetch(`https://api.twelvedata.com/time_series?symbol=${symbol}&interval=30min&outputsize=5&apikey=929916a64d344125af4e6f6b6ee54b21`);
-	const data = await response.json();
-	Printx(data);
-	} catch (error) {
-	console.error('Problem: ', error.message);
+	function Printx(data) {
+		data.values.forEach((x) => {
+	
+			if (openCheckbox.checked) {
+				html += `<p>Open: ${x.open}</p>`;
+			}
+			resultsContainer.insertAdjacentHTML('afterbegin', html);
+		});
 	}
-   }
-   
 
+	openCheckbox.addEventListener('change', handleOpenCheckbox);
+
+	highCheckbox.addEventListener('change', Printx);
+	lowCheckbox.addEventListener('change', Printx);
+	closeCheckbox.addEventListener('change', Printx);
+	volumeCheckbox.addEventListener('change', Printx);
+
+	async function fetchData(symbol) {
+		try {
+		const response = await fetch(`https://api.twelvedata.com/time_series?symbol=${symbol}&interval=1min&outputsize=1&apikey=1a9e18cfcdb848ccab1ba26debf7c920`);
+		const data = await response.json();
+		console.log(data);
+		Printx(data);
+		} catch (error) {
+		console.error('Problem: ', error.message);
+		}
+	}
