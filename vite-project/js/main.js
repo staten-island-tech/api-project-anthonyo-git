@@ -43,7 +43,6 @@
 //    }
 
 
-import '../css/style.css'
 import { DomSelectors } from "../js/dom.js";
 
 const { searchForm, searchInput, resultsContainer, openCheckbox, highCheckbox, lowCheckbox, closeCheckbox, volumeCheckbox } = DomSelectors();
@@ -89,6 +88,8 @@ async function fetchData(symbol) {
 	console.error('Problem: ', error.message);
 	}
 }
+
+
 
 // #1 key: 1a9e18cfcdb848ccab1ba26debf7c920
 // https://api.twelvedata.com/symbol_search?symbol=${symbol}&apikey=1a9e18cfcdb848ccab1ba26debf7c920
