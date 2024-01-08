@@ -63,7 +63,7 @@ searchForm.addEventListener('submit', (event) => {
 			<div class='cell'>
 				<div class='text-container'>
 				   <h2>Datetime: ${x.datetime}</h2>
-				   ${openCheckbox.checked ? `<p>Open: ${x.open}</p>` : 'x marks the spot'}
+				   ${openCheckbox.checked ? `<p>Open: ${x.open}</p>` : ''}
 				   ${highCheckbox.checked ? `<p>High: ${x.high}</p>` : ''}
 				   ${lowCheckbox.checked ? `<p>Low: ${x.low}</p>` : ''}
 				   ${closeCheckbox.checked ? `<p>Close: ${x.close}</p>` : ''}
@@ -80,7 +80,7 @@ searchForm.addEventListener('submit', (event) => {
 
 async function fetchData(symbol) {
 	try {
-	const response = await fetch(`https://api.twelvedata.com/time_series?symbol=${symbol}&interval=1min&outputsize=1&apikey=929916a64d344125af4e6f6b6ee54b21`);
+	const response = await fetch(`https://api.twelvedata.com/time_series?symbol=${symbol}&interval=1min&outputsize=1&apikey=1a9e18cfcdb848ccab1ba26debf7c920`);
 	const data = await response.json();
 	console.log(data);
 	Printx(data);
