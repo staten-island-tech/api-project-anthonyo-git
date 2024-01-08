@@ -16,11 +16,26 @@
 }
 
 .search-container {
-  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
   width: 50%;
-  border: 3px solid green;
+  border: 3px solid gray;
   padding: 10px;
   text-align: center;
+  border-radius: 15px; 
+  margin: 0 auto; 
+}
+
+#results {
+  width: 100%;
+  max-width: 500px; 
+  margin: 20px auto; 
+  padding: 20px; 
+  border-radius: 5px; 
+  background-color: #fff; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
 }
 
 a {

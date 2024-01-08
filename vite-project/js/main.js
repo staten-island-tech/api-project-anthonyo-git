@@ -18,11 +18,6 @@
 
 // getDATA()
 
-//secret key: 1a9e18cfcdb848ccab1ba26debf7c920
-// https://api.twelvedata.com/symbol_search?symbol=${symbol}&apikey=1a9e18cfcdb848ccab1ba26debf7c920
-// #2 key: 929916a64d344125af4e6f6b6ee54b21
-
-
 // searchForm.addEventListener('submit', (event) => {
 // 	event.preventDefault();
 // 	const symbol = searchInput.value;
@@ -54,6 +49,7 @@ import { DomSelectors } from "../js/dom.js";
 const { searchForm, searchInput, resultsContainer, openCheckbox, highCheckbox, lowCheckbox, closeCheckbox, volumeCheckbox } = DomSelectors();
 
 
+
 searchForm.addEventListener('submit', (event) => {
 	event.preventDefault();
 	resultsContainer.innerHTML = '';
@@ -61,30 +57,39 @@ searchForm.addEventListener('submit', (event) => {
 	fetchData(symbol);
    });
 
-	function Printx(data) {
-		data.values.forEach((x) => {
-	
-			if (openCheckbox.checked) {
-				html += `<p>Open: ${x.open}</p>`;
-			}
-			resultsContainer.insertAdjacentHTML('afterbegin', html);
-		});
+   // ternary operator
+   function Printx(data) {
+	data.values.forEach((x) => {
+		let INSERTING = `
+			<div class='cell'>
+				<div class='text-container'>
+				   <h2>Datetime: ${x.datetime}</h2>
+				   ${openCheckbox.checked ? `<p>Open: ${x.open}</p>` : 'x marks the spot'}
+				   ${highCheckbox.checked ? `<p>High: ${x.high}</p>` : ''}
+				   ${lowCheckbox.checked ? `<p>Low: ${x.low}</p>` : ''}
+				   ${closeCheckbox.checked ? `<p>Close: ${x.close}</p>` : ''}
+				   ${volumeCheckbox.checked ? `<p>Volume: ${x.volume}</p>` : ''}
+				</div>
+			</div>
+		`;
+ 
+		resultsContainer.insertAdjacentHTML('afterbegin', INSERTING);
+	});
+ }
+
+
+
+async function fetchData(symbol) {
+	try {
+	const response = await fetch(`https://api.twelvedata.com/time_series?symbol=${symbol}&interval=1min&outputsize=1&apikey=929916a64d344125af4e6f6b6ee54b21`);
+	const data = await response.json();
+	console.log(data);
+	Printx(data);
+	} catch (error) {
+	console.error('Problem: ', error.message);
 	}
+}
 
-	openCheckbox.addEventListener('change', handleOpenCheckbox);
-
-	highCheckbox.addEventListener('change', Printx);
-	lowCheckbox.addEventListener('change', Printx);
-	closeCheckbox.addEventListener('change', Printx);
-	volumeCheckbox.addEventListener('change', Printx);
-
-	async function fetchData(symbol) {
-		try {
-		const response = await fetch(`https://api.twelvedata.com/time_series?symbol=${symbol}&interval=1min&outputsize=1&apikey=1a9e18cfcdb848ccab1ba26debf7c920`);
-		const data = await response.json();
-		console.log(data);
-		Printx(data);
-		} catch (error) {
-		console.error('Problem: ', error.message);
-		}
-	}
+// #1 key: 1a9e18cfcdb848ccab1ba26debf7c920
+// https://api.twelvedata.com/symbol_search?symbol=${symbol}&apikey=1a9e18cfcdb848ccab1ba26debf7c920
+// #2 key: 929916a64d344125af4e6f6b6ee54b21

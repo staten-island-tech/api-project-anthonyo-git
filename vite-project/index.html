@@ -6,25 +6,28 @@
     <title>MY API PROJECT</title>
   </head>
   <body>
-    <div class = "search-container">
-      <form id="search-form">
-        <input id="search-input" type="text" placeholder="Enter a symbol">
-        <button type="submit">Search</button>
-        <div class = "filter-container">
-          <input type="checkbox" id="Open" name="Open" value="Open">
-          <label for="Open"> Open</label><br>
-          <input type="checkbox" id="High" name="High" value="High">
-          <label for="High"> High</label><br>
-          <input type="checkbox" id="Low" name="Low" value="Low">
-          <label for="Low"> Low</label><br> 
-          <input type="checkbox" id="Close" name="Close" value="Close">
-          <label for="Close"> Close</label><br>
-          <input type="checkbox" id="Volume" name="Volume" value="Volume">
-          <label for="Volume"> Volume</label><br> 
-        </div>
-      </form>
-    </div>
-    <div id="results"></div>
+      <div class = "search-container">
+        <form id="search-form">
+          <input id="search-input" type="text" placeholder="Enter a symbol">
+          <button type="submit">Search</button> 
+          <label for="search-input">Enter a symbol</label>
+                                                  <!-- SEARCHINPUT.value to access  -->
+
+          <div cl`ass = "filter-container">
+            <input type="checkbox" id="Open" name="Open" value="Open">
+            <label for="Open"> Open</label><br>
+            <input type="checkbox" id="High" name="High" value="High">
+            <label for="High"> High</label><br>
+            <input type="checkbox" id="Low" name="Low" value="Low">
+            <label for="Low"> Low</label><br> 
+            <input type="checkbox" id="Close" name="Close" value="Close">
+            <label for="Close"> Close</label><br>
+            <input type="checkbox" id="Volume" name="Volume" value="Volume">
+            <label for="Volume"> Volume</label><br> 
+          </div>
+        </form>
+      </div> 
+      <div id="results"></div>
     <script type="module" src="js/main.js"></script>
   </body>
 </html>
