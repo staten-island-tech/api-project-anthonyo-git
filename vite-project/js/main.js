@@ -83,7 +83,13 @@ async function fetchData(symbol) {
 	const response = await fetch(`https://api.twelvedata.com/time_series?symbol=${symbol}&interval=1min&outputsize=1&apikey=1a9e18cfcdb848ccab1ba26debf7c920`);
 	const data = await response.json();
 	console.log(data);
-	Printx(data);
+
+	if (data.status === "ok") {
+		Printx(data);
+	} else {
+		resultsContainer.insertAdjacentHTML('afterbegin', `<p>Stock ticker is not valid.</p>`);
+	}
+
 	} catch (error) {
 	console.error('Problem: ', error.message);
 	}
