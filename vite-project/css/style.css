@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #87CEEB;
+  background-color: #000000;
   /* background-image: url("https://random.imagecdn.app/500/150");
   background-size: 100%; */
 
@@ -18,10 +18,10 @@
 
 body {
   display: grid;
-  grid-template-rows: auto auto auto;
+  text-align: center;
   place-items: center;
   min-height: 100vh;
-  background-color: #145f7c;
+  background-color: #000000;
   font-size: 1.1em;
   color: #000000;
  }
@@ -29,6 +29,7 @@ body {
  .page {
   display: flex;
   flex-direction: column;
+  text-align: center;
   align-items: center; 
   justify-content: center; 
   height: 100vh; 
@@ -65,7 +66,10 @@ body {
  
  h1 {
   margin-bottom: 20px; 
-  color: #9b410c;
-  text-align: center;
+  color: #ffffff;
+  max-width: 500px; 
+  margin: 20px auto; 
+  padding: 20px; 
+  border-radius: 5px; 
  }
 
