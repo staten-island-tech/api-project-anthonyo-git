@@ -6,8 +6,9 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #000000;
-  /* background-image: url("https://random.imagecdn.app/500/150");
-  background-size: 100%; */
+  background-image: url("https://random.imagecdn.app/500/150");
+  background-repeat: no-repeat;
+  background-size: 200%; 
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -21,7 +22,7 @@ body {
   text-align: center;
   place-items: center;
   min-height: 100vh;
-  background-color: #000000;
+  /* background-color: #000000; */
   font-size: 1.1em;
   color: #000000;
  }
