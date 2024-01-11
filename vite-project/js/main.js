@@ -95,7 +95,8 @@ async function fetchData(symbol) {
 	}
 }
 
-
+const defaultSymbol = 'AAPL'; 
+fetchData(defaultSymbol);
 
 // #1 key: 1a9e18cfcdb848ccab1ba26debf7c920
 // https://api.twelvedata.com/symbol_search?symbol=${symbol}&apikey=1a9e18cfcdb848ccab1ba26debf7c920
